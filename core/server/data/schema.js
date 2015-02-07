@@ -37,7 +37,7 @@ var db = {
             status: {type: 'string', maxlength: 150, nullable: false, defaultTo: 'active'},
             language: {type: 'string', maxlength: 6, nullable: false, defaultTo: 'en_US'},
             meta_title: {type: 'string', maxlength: 150, nullable: true},
-            meta_description: {type: 'string', maxlength: 200, nullable: true},
+            meta_description: {type: 'string', maxlength: 1200, nullable: true},
             last_login: {type: 'dateTime', nullable: true},
             created_at: {type: 'dateTime', nullable: false},
             created_by: {type: 'integer', nullable: false},
