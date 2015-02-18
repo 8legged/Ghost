@@ -1158,11 +1158,20 @@ define('ghost/templates/posts', ['exports'], function(__exports__){ __exports__[
   var stack1, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, buffer = '';
   data.buffer.push("<header class=\"page-header\">\n    <button class=\"menu-button js-menu-button\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleGlobalMobileNav", {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING"],"contexts":[depth0],"data":data})));
-  data.buffer.push("><span class=\"sr-only\">Menu</span></button>\n    <h2 class=\"page-title\">Content</h2>\n</header>\n\n<div class=\"page-content\">\n    <section ");
+  data.buffer.push("><span class=\"sr-only\">Menu</span></button>\n    <h2 class=\"page-title\">Content</h2>\n</header>\n\n<style media='screen'>\n.content-filter input {\n    border : 0;\n    background : transparent;\n};\n\n</style>\n\n<div class=\"page-content\">\n    <section ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': (":content-list :js-content-list postListFocused:keyboard-focused")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
-  data.buffer.push(">\n        <header class=\"floatingheader\">\n            <section class=\"content-filter\">\n                <small>All Posts</small>\n            </section>\n            ");
+  data.buffer.push(">\n        <header class=\"floatingheader\">\n            <section class=\"content-filter\">\n            <form ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "filterPosts", {"name":"action","hash":{
+    'on': ("submit")
+  },"hashTypes":{'on': "STRING"},"hashContexts":{'on': depth0},"types":["STRING"],"contexts":[depth0],"data":data})));
+  data.buffer.push(">\n            <small>");
+  data.buffer.push(escapeExpression(((helpers.input || (depth0 && depth0.input) || helperMissing).call(depth0, {"name":"input","hash":{
+    'placeholder': ("All Posts"),
+    'value': ("filterInput")
+  },"hashTypes":{'placeholder': "STRING",'value': "ID"},"hashContexts":{'placeholder': depth0,'value': depth0},"types":[],"contexts":[],"data":data}))));
+  data.buffer.push("</small>\n            </form>\n\n            </section>\n            ");
   stack1 = ((helpers['link-to'] || (depth0 && depth0['link-to']) || helperMissing).call(depth0, "editor.new", {"name":"link-to","hash":{
     'title': ("New Post"),
     'class': ("btn btn-green")

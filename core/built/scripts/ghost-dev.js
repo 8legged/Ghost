@@ -7161,11 +7161,10 @@ define("ghost/routes/posts",
         },
 
         shortcuts: {
-            'up, k': 'moveUp',
-            'down, j': 'moveDown',
+            'up': 'moveUp',
+            'down': 'moveDown',
             left: 'focusList',
-            right: 'focusContent',
-            c: 'newPost'
+            right: 'focusContent'
         },
 
         actions: {
@@ -7316,7 +7315,7 @@ define("ghost/routes/posts/post",
         },
 
         shortcuts: {
-            'enter, o': 'openEditor',
+            'enter': 'openEditor',
             'command+backspace, ctrl+backspace': 'deletePost'
         },
 

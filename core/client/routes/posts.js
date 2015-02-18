@@ -71,11 +71,10 @@ PostsRoute = AuthenticatedRoute.extend(ShortcutsRoute, styleBody, loadingIndicat
     },
 
     shortcuts: {
-        'up, k': 'moveUp',
-        'down, j': 'moveDown',
+        'up': 'moveUp',
+        'down': 'moveDown',
         left: 'focusList',
-        right: 'focusContent',
-        c: 'newPost'
+        right: 'focusContent'
     },
 
     actions: {

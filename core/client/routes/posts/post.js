@@ -56,7 +56,7 @@ var PostsPostRoute = AuthenticatedRoute.extend(loadingIndicator, ShortcutsRoute,
     },
 
     shortcuts: {
-        'enter, o': 'openEditor',
+        'enter': 'openEditor',
         'command+backspace, ctrl+backspace': 'deletePost'
     },
 

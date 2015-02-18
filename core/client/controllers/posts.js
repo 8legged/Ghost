@@ -26,6 +26,12 @@ var PostsController = Ember.ArrayController.extend(PaginationControllerMixin, {
     // this will cause the list to re-sort when any of these properties change on any of the models
     sortProperties: ['status', 'published_at', 'updated_at'],
 
+    actions : {
+        filterPosts : function() {
+            var filter =
+        }
+    },
+
     // override Ember.SortableMixin
     //
     // this function will keep the posts list sorted when loading individual/bulk
