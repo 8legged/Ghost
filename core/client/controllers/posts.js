@@ -28,9 +28,16 @@ var PostsController = Ember.ArrayController.extend(PaginationControllerMixin, {
 
     actions : {
         filterPosts : function() {
-            var filter =
+            var filter = this.get('filterInput');
+            alert(filter);
         }
     },
+
+    filteredContent : function() {
+        var posts = this.get('arrangedContent');
+
+        return posts;
+    }.property(),
 
     // override Ember.SortableMixin
     //

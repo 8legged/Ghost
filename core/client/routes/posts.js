@@ -28,7 +28,7 @@ PostsRoute = AuthenticatedRoute.extend(ShortcutsRoute, styleBody, loadingIndicat
 
             // using `.filter` allows the template to auto-update when new models are pulled in from the server.
             // we just need to 'return true' to allow all models by default.
-            return self.store.filter('post', paginationSettings, function (post) {
+            return self.store.filter('post', {limit : 500}, function (post) {
                 if (user.get('isAuthor')) {
                     return post.isAuthoredByUser(user);
                 }

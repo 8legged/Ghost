@@ -3134,6 +3134,19 @@ define("ghost/controllers/posts",
         // this will cause the list to re-sort when any of these properties change on any of the models
         sortProperties: ['status', 'published_at', 'updated_at'],
 
+        actions : {
+            filterPosts : function() {
+                var filter = this.get('filterInput');
+                alert(filter);
+            }
+        },
+
+        filteredContent : function() {
+            var posts = this.get('arrangedContent');
+
+            return posts;
+        }.property(),
+
         // override Ember.SortableMixin
         //
         // this function will keep the posts list sorted when loading individual/bulk
@@ -7118,7 +7131,7 @@ define("ghost/routes/posts",
 
                 // using `.filter` allows the template to auto-update when new models are pulled in from the server.
                 // we just need to 'return true' to allow all models by default.
-                return self.store.filter('post', paginationSettings, function (post) {
+                return self.store.filter('post', {limit : 500}, function (post) {
                     if (user.get('isAuthor')) {
                         return post.isAuthoredByUser(user);
                     }
@@ -7315,7 +7328,7 @@ define("ghost/routes/posts/post",
         },
 
         shortcuts: {
-            'enter': 'openEditor',
+            // 'enter': 'openEditor',
             'command+backspace, ctrl+backspace': 'deletePost'
         },
 
