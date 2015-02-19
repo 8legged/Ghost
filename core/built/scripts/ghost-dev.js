@@ -3133,19 +3133,21 @@ define("ghost/controllers/posts",
         postContentFocused: Ember.computed.equal('keyboardFocus', 'postContent'),
         // this will cause the list to re-sort when any of these properties change on any of the models
         sortProperties: ['status', 'published_at', 'updated_at'],
-
+        filter : '',
         actions : {
             filterPosts : function() {
                 var filter = this.get('filterInput');
-                alert(filter);
+                this.set('filter', filter);
             }
         },
-
         filteredContent : function() {
             var posts = this.get('arrangedContent');
-
-            return posts;
-        }.property(),
+            var filter = this.get('filter');
+            var rx = new RegExp(filter, 'gi');
+            return posts.filter(function(post) {
+                return post.get('title').match(rx);
+            });
+        }.property('arrangedContent', 'filter'),
 
         // override Ember.SortableMixin
         //
