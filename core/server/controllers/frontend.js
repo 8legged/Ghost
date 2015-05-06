@@ -16,6 +16,7 @@ var moment      = require('moment'),
     errors      = require('../errors'),
     cheerio     = require('cheerio'),
     routeMatch  = require('path-match')(),
+    fullText    = require('../../../lib/ghost-search'),
 
     frontendControllers,
     staticPostPermalink,
@@ -125,9 +126,25 @@ function getActiveThemePaths() {
 frontendControllers = {
     archive: function(req, res, next){
         api.posts.browse({limit : 250}).then(function(result){
-            console.log(result.posts.length);
             res.render('archive', {posts : result.posts});
         });
+    },
+    search : function(req, res, next){
+        var q = req.query.q;
+        if (q) {
+        api.posts.browse({limit : 250}).then(function(result){
+            fullText.load(result.posts);
+            var results = fullText.search(q);
+            var out = {
+                query : q,
+                count : results.length,
+                posts : results
+            };
+            res.render('search', out);
+        });
+        } else {
+            res.redirect('/');
+        }
     },
     homepage: function (req, res, next) {
         // Parse the page number

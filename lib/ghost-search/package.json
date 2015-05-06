@@ -1,0 +1,16 @@
+{
+  "name": "ghost-search",
+  "version": "0.0.1",
+  "description": "Full text powered by lunr",
+  "main": "index.js",
+  "dependencies": {
+    "lunr": "^0.5.7",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "8legged",
+  "license": "ISC"
+}

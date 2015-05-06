@@ -9190,11 +9190,11 @@ define("ghost/validators/post",
                 });
             }
 
-            // if (!validator.isLength(data.meta_description, 0, 1200)) {
-            //     validationErrors.push({
-            //         message: 'Meta Description cannot be longer than 200 characters.'
-            //     });
-            // }
+            if (!validator.isLength(data.meta_description, 0, 1200)) {
+                validationErrors.push({
+                    message: 'Meta Description cannot be longer than 1200 characters.'
+                });
+            }
 
             return validationErrors;
         }
